@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Your favorite restaurant</title>
+    <meta charset="utf-8">
+    {% include 'bootstrap.html' %}
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='diet.png') }}">"
+  </head>
+  <body>
+    {%include 'nav.html'%}
+    <h1>Welcome to Your Favorite Restaurant!</h1>
+    <img src="{{url_for('static', filename='banner.jpg')}}" class="banner_m">
+    <div class="container2">
+      <div style="margin-bottom:100px"></div>
+    <h1>Your order was succesfully saved! </h1>
+    <div style="margin-bottom:15%"></div>
+    <div style="text-align:center"><a href="/" class="button2" style="text-decoration: none;">Go back!</a></div>
+      </div>
+    {% include 'footer.html'%}
+  </body>
+</html>

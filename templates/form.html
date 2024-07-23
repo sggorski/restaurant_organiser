@@ -1,0 +1,15 @@
+<form action="/order/submit" method="post">
+    {% for meal in food %}
+    <h3><b>
+        <input type="checkbox" class="form-check-input" id="{{meal['id']}}" name="{{meal['id']}}">
+    <label class="form-check-label">{{meal['name']}}</label>
+    </h3></b>
+    <h3>Price: {{meal['price']}} $</h3>
+    <p style="font-size:25px">{{meal['description']}}</p>
+    <br>
+    {% endfor %}
+    <div style="text-align:center">
+        <button type="submit" class="button2">Submit</button>
+    </div>
+  
+</form>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Your favorite restaurant</title>
+    <meta charset="utf-8">
+    {% include 'bootstrap.html' %}
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='diet.png') }}">"
+  </head>
+  <body>
+    {%include 'nav.html'%}
+    <h1>Welcome to Your Favorite Restaurant!</h1>
+    <img src="{{url_for('static', filename='banner.jpg')}}" class="banner_m">
+    <div  class="container2">
+      <h2 class="border-bottom pb-2">About us</h2>
+    <div class="d-block d-lg-none">{%include 'describtion.html'%}</div>
+    <div class="row">
+      <div class="col-md-8 d-none d-lg-block">
+        {%include 'describtion.html'%} 
+      </div>
+      <div class="col-md-4 d-none d-lg-block image1">
+        <img src="{{url_for('static', filename='food.jpg')}}" width =80% height=90%>
+      </div>
+    </div>
+    <div class="row text-center" style="margin-top:60px; margin-bottom:30px;">
+      <div class="col"><a href="/order/" class="button2" >Order</a></div>
+      <div class="col"><a href="" class="button2">Edit</a></div>
+      <div class="col"><a href="" class="button2">Raport</a></div>
+    </div>
+    </div>
+    {%include 'footer.html'%}
+  </body>
+</html>

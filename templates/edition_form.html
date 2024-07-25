@@ -1,0 +1,21 @@
+
+{% for meal in menu %}
+<div class="underline">
+    <h3><b>{{meal['name']}}</h3></b>
+    <h3>Price: {{meal['price']}} $</h3>
+    <p style="font-size:25px">{{meal['description']}}</p><br>
+    <div class="row">
+        <div class="col" style="align-content:center; text-align:center">
+            <form action="/edit/", method="post">
+                <input type="hidden" name="id" value="{{meal.id}}">
+                <button type="submit" class="button2" style="margin-bottom:0px">Delete</button>
+            </form>
+        </div>
+        <div class="col" style="align-content:center; text-align:center" >
+            <a class="button2" href="/edit/{{meal.id}}"> Edit </a>
+        </div>
+     </div>
+    <br>
+</div>
+<br>
+{% endfor %}

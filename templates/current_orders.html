@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Your favorite restaurant</title>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="10">
+    {% include 'bootstrap.html' %}
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='diet.png') }}">"
+  </head>
+  <body>
+    {%include 'nav.html'%}
+    <h1>Welcome to Your Favorite Restaurant!</h1>
+    <img src="{{url_for('static', filename='banner.jpg')}}" class="banner_m">
+    <div  class="container2">
+      <h2>Current orders</h2>
+      {% for order in orders %}
+      <h3 class="underline" ><b>
+          Id: {{order.id}}
+      </h3></b>
+        {% for meal in order.order_info %}
+          <p>
+              {{meal.name}}
+          </p>
+        {% endfor %}
+      <br>
+      <div style="text-align:right">
+          <form action="/orders/", method="post">
+            <input type="hidden" name="id" value="{{order.id}}">
+            <button type="submit" class="button2">Done</button>
+          </form>
+      </div>
+      {% endfor %}
+    </div>
+    {% include 'footer.html'%}
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Your favorite restaurant</title>
+    <meta charset="utf-8">
+    {% include 'bootstrap.html' %}
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='diet.png') }}">"
+  </head>
+  <body>
+    {%include 'nav.html'%}
+    <h1>Welcome to Your Favorite Restaurant!</h1>
+    <img src="{{url_for('static', filename='banner.jpg')}}" class="banner_m">
+    <div  class="container2">
+      <h2>Edit your meal</h2>
+      <form action="/edit/" method="post">
+        <p>
+          <h3><label>Name:</label><br></h3>
+          <input type="text" name="name" value="{{meal.name}}" style="font-size:30px; margin-bottom:20px"></input><br>
+          <h3><label>Price:</label><br></h3>
+          <input type="text" name="price" value="{{meal.price}}" style="font-size:30px; margin-bottom:20px"></input>
+          <h3><label>Description:</label><br></h3>
+          <textarea type="text" name="description" cols=100 rows=6 style="font-size:30px; margin-bottom:20px">{{meal.description}}</textarea><br>
+          <input type="hidden" name="id" value="{{meal.id}}"></input>
+        </p>
+        <div style="text-align:center">
+          <button type="submit" class="button2">Save</button>
+        </div>
+      </form>
+    </div>
+    {% include 'footer.html'%}
+  </body>
+</html>

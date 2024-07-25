@@ -26,7 +26,7 @@
       <div style="text-align:right"> <h4><b>Total:     </b>{{total_price}} $</h4></div>
       <div style="text-align:center">
           <form action="/order/submit/confirmation" method="POST">
-            <input type="hidden" name="data" value="{{data}}">
+            <input type="hidden" name="data" value="{{ids}}">
             <button type="submit" class="button2">Confirm</button>
           </form>
       </div>

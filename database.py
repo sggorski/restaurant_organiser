@@ -1,7 +1,6 @@
 from  sqlalchemy import create_engine, text
 import os
 
-from werkzeug import datastructures
 engine = create_engine(os.environ['DB_STR'])
 
 def load_menu():
@@ -51,14 +50,14 @@ def remove_meal(id):
     conn.execute(text(cmd), {"id": id})
     conn.commit()
 
-def update_meal(data):
+def update_meal(name, price, description ,id):
   cmd ="UPDATE menu SET name = :name, price = :price, description = :description WHERE id =:id;"
   with engine.connect() as conn:
-    conn.execute(text(cmd), {"name" : data['name'], "price" : data['price'], "description" : data['description'], "id" : data['id']})
+    conn.execute(text(cmd), {"name" : name, "price" :price, "description" : description, "id" : id })
     conn.commit()
 
-def add_meal(data):
+def add_meal(name, price, description):
   cmd ="insert into menu (name, price, description) values (:name, :price, :description)"
   with engine.connect() as conn:
-    conn.execute(text(cmd), {"name" : data['name'], "price" : data['price'], "description" : data['description']})
+    conn.execute(text(cmd), {"name" : name, "price" :price, "description" : description})
     conn.commit()

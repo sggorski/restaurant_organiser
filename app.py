@@ -39,9 +39,15 @@ def cancel_meal():
     if len(data)==1:
         remove_meal(data['id'])
     elif data['id']=='-1':
-        add_meal(data)
+        if data['description2'] == "":
+            add_meal(data['name'], data['price'], data['description'])
+        else:
+            add_meal(data['name'], data['price'], data['description2'])
     else:
-        update_meal(data)
+        if data['description'] ==  data['original_text']:
+            update_meal(data['name'], data['price'], data['description2'], data['id'])
+        else:
+            update_meal(data['name'], data['price'], data['description'], data['id'])
     return edit()
     
 @app.route('/edit/<id>')

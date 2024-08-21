@@ -14,8 +14,8 @@
     <div  class="container2">
       <h2>Confirm your order</h2>
       <div class="row">
-        <div class="col-md-6"><h3><b>Meal</b></h3></div>
-        <div class="col-md-2" ><h4><b>Quantity</b></h4></div>
+        <div class="col-md-4"><h3><b>Meal</b></h3></div>
+        <div class="col-md-4" ><h4><b>Qty.</b></h4></div>
         <div class="col-md-2"><h4><b>Price</b></h4></div>
         <div class="col-md-2" ><h4><b>Total</b></h4></div>
       </div>
@@ -35,7 +35,7 @@
         </div>
       </div>
     {% endfor %}
-      <div style="text-align:right"> <h4><b>To pay:     </b>{{total_price}} $</h4></div>
+      <div style="text-align:right"> <h4><b>To pay:     </b> {{total_price}} $</h4></div>
       <div style="text-align:center">
           <form action="/order/submit/confirmation" method="POST">
             <input type="hidden" name="quantity" value="{{quantity}}">

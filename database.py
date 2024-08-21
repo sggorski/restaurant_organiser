@@ -32,10 +32,10 @@ def load_order(ids):
       data.append(dict(row))
     return data
 
-def save_order(data):
-  cmd = "insert into orders (order_info) values (:info)"
+def save_order(ids,quantities):
+  cmd = "insert into orders (order_info, quantity_info) values (:info, :q)"
   with engine.connect() as conn:
-    conn.execute(text(cmd), {"info": data})
+    conn.execute(text(cmd), {"info": ids, "q": quantities})
     conn.commit()
 
 def remove_order(id):

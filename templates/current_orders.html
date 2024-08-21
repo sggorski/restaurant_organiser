@@ -18,11 +18,12 @@
       <h3 class="underline" ><b>
           Id: {{order.id}}
       </h3></b>
-        {% for meal in order.order_info %}
+        {% for meal in order.meals %}
           <p>
-              {{meal.name}}
+            {{meal.quantity}} x {{meal.name}} 
           </p>
         {% endfor %}
+      
       <br>
       <div style="text-align:right">
           <form action="/orders/", method="post">

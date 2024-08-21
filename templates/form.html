@@ -1,8 +1,10 @@
 <form action="/order/submit" method="post">
     {% for meal in food %}
     <h3><b>
+
         <input type="checkbox" class="form-check-input" id="{{meal['id']}}" name="{{meal['id']}}">
-    <label class="form-check-label">{{meal['name']}}</label>
+        <label class="form-check-label">{{meal['name']}} </label>
+        <input type="number" name="quantity_{{meal.id}}" min=1 value=1 style="width: 4%; margin-left : 10px;">
     </h3></b>
     <h3>Price: {{meal['price']}} $</h3>
     <p style="font-size:25px">{{meal['description']}}</p>
